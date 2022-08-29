@@ -6,14 +6,14 @@ plugins {
 }
 
 android {
-    compileSdk = 30
+    compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {
-        applicationId = "camp.nextstep.edu.github"
-        minSdk = 21
-        targetSdk = 30
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = ProjectConfig.applicationId
+        minSdk = ProjectConfig.minSdk
+        targetSdk = ProjectConfig.targetSdk
+        versionCode = ProjectConfig.versionCode
+        versionName = ProjectConfig.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments["runnerBuilder"] =
