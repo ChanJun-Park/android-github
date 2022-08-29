@@ -51,13 +51,13 @@ dependencies {
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.0")
 
-    testImplementation("org.junit.jupiter:junit-jupiter:$junit5Version")
-    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:$junit5Version") // junit4 지원
-    testImplementation("junit:junit:4.13.2")
-    testImplementation("com.google.truth:truth:1.1.3")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-    androidTestImplementation("org.junit.jupiter:junit-jupiter-api:$junit5Version")
-    androidTestImplementation("de.mannodermaus.junit5:android-test-core:1.2.2")
-    androidTestRuntimeOnly("de.mannodermaus.junit5:android-test-runner:1.2.2")
+    testImplementation(Testing.jupiter)
+    testRuntimeOnly(Testing.vintage)
+    testImplementation(Testing.junit)
+    testImplementation(Testing.truth)
+    androidTestImplementation(Testing.junitAndroidExt)
+    androidTestImplementation(Testing.espresso)
+    androidTestImplementation(Testing.jupiterApi)
+    androidTestImplementation(Testing.junit5AndroidCore)
+    androidTestRuntimeOnly(Testing.junit5AndroidRunner)
 }
