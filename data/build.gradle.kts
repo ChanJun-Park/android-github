@@ -1,5 +1,6 @@
 plugins {
 	id("org.jetbrains.kotlin.jvm")
+	id("kotlin-kapt")
 }
 
 java {
@@ -9,4 +10,7 @@ java {
 
 dependencies {
 	implementation(project(Modules.domain))
+
+	implementation(DaggerHilt.hiltCore)
+	"kapt"(DaggerHilt.hiltCompiler)
 }
