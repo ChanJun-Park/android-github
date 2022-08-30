@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("de.mannodermaus.android-junit5")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -51,6 +52,9 @@ dependencies {
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.0")
 
+    implementation(DaggerHilt.hiltAndroid)
+    kapt(DaggerHilt.hiltCompiler)
+
     testImplementation(Testing.jupiter)
     testRuntimeOnly(Testing.vintage)
     testImplementation(Testing.junit)
@@ -60,4 +64,8 @@ dependencies {
     androidTestImplementation(Testing.jupiterApi)
     androidTestImplementation(Testing.junit5AndroidCore)
     androidTestRuntimeOnly(Testing.junit5AndroidRunner)
+}
+
+kapt {
+    correctErrorTypes = true
 }
