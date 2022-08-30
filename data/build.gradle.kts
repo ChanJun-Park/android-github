@@ -13,4 +13,9 @@ dependencies {
 
 	implementation(DaggerHilt.hiltCore)
 	"kapt"(DaggerHilt.hiltCompiler)
+
+	implementation(Retrofit.retrofit)
+	implementation(Retrofit.moshiConverter)
+	implementation(Retrofit.okHttp)
+	implementation(Retrofit.okHttpLoggingInterceptor)
 }
