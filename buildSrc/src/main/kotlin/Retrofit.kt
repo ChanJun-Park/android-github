@@ -6,4 +6,7 @@ object Retrofit {
     private const val okHttpVersion = "5.0.0-alpha.2"
     const val okHttp = "com.squareup.okhttp3:okhttp:$okHttpVersion"
     const val okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+
+    private const val mockWebServerVersion = "4.10.0"
+    const val mockWebServer = "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
 }

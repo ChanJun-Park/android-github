@@ -18,4 +18,13 @@ dependencies {
 	implementation(Retrofit.moshiConverter)
 	implementation(Retrofit.okHttp)
 	implementation(Retrofit.okHttpLoggingInterceptor)
+
+	implementation(Coroutines.coroutines)
+
+	testImplementation(Retrofit.mockWebServer)
+	testImplementation(Coroutines.coroutinesTest)
+	testImplementation(Testing.jupiter)
+	testRuntimeOnly(Testing.vintage)
+	testImplementation(Testing.junit)
+	testImplementation(Testing.truth)
 }

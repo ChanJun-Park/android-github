@@ -1,0 +1,9 @@
+[
+    {
+        id: 1,
+        node_id: "MDEwOlJlcG9zaXRvcnkx",
+        name: "grit",
+        full_name: "mojombo/grit",
+        description: "**Grit is no longer maintained. Check out libgit2/rugged.** Grit gives you object oriented read/write access to Git repositories via Ruby."
+    }
+]
