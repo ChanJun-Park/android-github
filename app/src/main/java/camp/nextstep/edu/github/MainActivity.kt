@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
 	private suspend fun collectGithubRepositories() {
 		viewModel.githubRepos.collectLatest {
-			adapter.submitList(it)
+			adapter.submitList(it.githubRepos)
 		}
 	}
 }

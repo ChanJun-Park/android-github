@@ -7,6 +7,7 @@ import camp.nextstep.edu.data.mapper.toGithubRepoEntity
 import camp.nextstep.edu.data.remote.GithubApi
 import camp.nextstep.edu.data.remote.dto.GithubRepoDto
 import camp.nextstep.edu.domain.model.GithubRepo
+import camp.nextstep.edu.domain.model.GithubRepoList
 import camp.nextstep.edu.domain.repository.GithubRepoRepository
 import javax.inject.Inject
 
@@ -15,7 +16,7 @@ internal class GithubRepoRepositoryImpl @Inject constructor(
 	private val githubRepoEntityDao: GithubRepoEntityDao,
 ) : GithubRepoRepository {
 
-	override suspend fun fetchGithubRepos(): List<GithubRepo> {
+	override suspend fun fetchGithubRepos(): GithubRepoList {
 		runCatching {
 			githubApi.fetchGithubRepos()
 		}.onSuccess {
@@ -37,13 +38,16 @@ internal class GithubRepoRepositoryImpl @Inject constructor(
 		}
 	}
 
-	private suspend fun getAllGithubReposFromDB(): List<GithubRepo> {
-		return runCatching {
+	private suspend fun getAllGithubReposFromDB(): GithubRepoList {
+		val result = runCatching {
 			githubRepoEntityDao.selectAll().map { it.toGithubRepo() }
-		}.getOrElse {
-			Log.d("GithubRepository", "Selecting github repositories failed", it)
+		}
 
+		val githubRepos = result.getOrElse {
+			Log.d("GithubRepository", "Selecting github repositories failed", it)
 			emptyList()
 		}
+
+		return GithubRepoList(githubRepos)
 	}
 }
