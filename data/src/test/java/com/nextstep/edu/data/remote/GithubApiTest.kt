@@ -1,7 +1,6 @@
 package com.nextstep.edu.data.remote
 
 import camp.nextstep.edu.data.remote.GithubApi
-import camp.nextstep.edu.data.remote.dto.GithubRepositoriesResponse
 import camp.nextstep.edu.data.remote.dto.GithubRepositoryDto
 import com.google.common.truth.Truth.assertThat
 import com.nextstep.edu.data.MainCoroutineRule
