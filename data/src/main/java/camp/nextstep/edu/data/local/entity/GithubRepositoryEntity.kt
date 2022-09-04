@@ -8,5 +8,5 @@ data class GithubRepositoryEntity(
 	@PrimaryKey
 	val id: Int,
 	val fullName: String,
-	val description: String
+	val description: String?
 )

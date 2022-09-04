@@ -15,32 +15,33 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 abstract class ApiModule {
 
-	@Provides
-	@Singleton
-	internal fun provideOkHttpClient(): OkHttpClient {
-		return OkHttpClient.Builder()
-			.addInterceptor(
-				HttpLoggingInterceptor().apply {
-					level = HttpLoggingInterceptor.Level.BODY
-				}
-			)
-			.build()
-	}
+	companion object {
+		@Provides
+		@Singleton
+		internal fun provideOkHttpClient(): OkHttpClient {
+			return OkHttpClient.Builder()
+				.addInterceptor(
+					HttpLoggingInterceptor().apply {
+						level = HttpLoggingInterceptor.Level.BODY
+					}
+				)
+				.build()
+		}
 
-	@Provides
-	@Singleton
-	internal fun provideRetrofit(client: OkHttpClient): Retrofit {
-		return Retrofit.Builder()
-			.baseUrl(GithubApi.BASE_URL)
-			.addConverterFactory(MoshiConverterFactory.create())
-			.client(client)
-			.build()
-	}
+		@Provides
+		@Singleton
+		internal fun provideRetrofit(client: OkHttpClient): Retrofit {
+			return Retrofit.Builder()
+				.baseUrl(GithubApi.BASE_URL)
+				.addConverterFactory(MoshiConverterFactory.create())
+				.client(client)
+				.build()
+		}
 
-	@Provides
-	@Singleton
-	internal fun provideGithubApi(retrofit: Retrofit): GithubApi {
-		return retrofit.create(GithubApi::class.java)
+		@Provides
+		@Singleton
+		internal fun provideGithubApi(retrofit: Retrofit): GithubApi {
+			return retrofit.create(GithubApi::class.java)
+		}
 	}
-
 }

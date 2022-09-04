@@ -7,4 +7,12 @@ object AndroidX {
 
 	private const val constraintLayoutVersion = "2.1.4"
 	const val constraintLayout = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+
+	private const val lifeCycleVersion = "2.4.0"
+	const val viewModelLifeCycleKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleVersion"
+	const val runtimeLifeCycleKtx = "androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleVersion"
+	const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleVersion"
+
+	private const val fragmentKtxVersion = "1.5.2"
+	const val fragmentKtx = "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
 }

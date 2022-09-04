@@ -14,19 +14,21 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 abstract class DatabaseModule {
 
-	@Provides
-	@Singleton
-	internal fun provideGithubRepositoryDatabase(application: Application): GithubRepositoryDatabase {
-		return Room.databaseBuilder(
-			application,
-			GithubRepositoryDatabase::class.java,
-			"github_repository"
-		).build()
-	}
+	companion object {
+		@Provides
+		@Singleton
+		internal fun provideGithubRepositoryDatabase(application: Application): GithubRepositoryDatabase {
+			return Room.databaseBuilder(
+				application,
+				GithubRepositoryDatabase::class.java,
+				"github_repository"
+			).build()
+		}
 
-	@Provides
-	@Singleton
-	internal fun provideGithubRepositoryEntityDao(githubRepositoryDatabase: GithubRepositoryDatabase): GithubRepositoryEntityDao {
-		return githubRepositoryDatabase.githubRepositoryEntityDao
+		@Provides
+		@Singleton
+		internal fun provideGithubRepositoryEntityDao(githubRepositoryDatabase: GithubRepositoryDatabase): GithubRepositoryEntityDao {
+			return githubRepositoryDatabase.githubRepositoryEntityDao
+		}
 	}
 }

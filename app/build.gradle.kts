@@ -45,15 +45,22 @@ android {
 
 dependencies {
     implementation(project(Modules.domain))
+    implementation(project(Modules.data))
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.appCompat)
     implementation(AndroidX.constraintLayout)
+    implementation(AndroidX.viewModelLifeCycleKtx)
+    implementation(AndroidX.runtimeLifeCycleKtx)
+    implementation(AndroidX.liveDataKtx)
+    implementation(AndroidX.fragmentKtx)
     implementation(Material.material)
 
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)
+
+    implementation(Coroutines.coroutines)
 
     testImplementation(Testing.jupiter)
     testRuntimeOnly(Testing.vintage)

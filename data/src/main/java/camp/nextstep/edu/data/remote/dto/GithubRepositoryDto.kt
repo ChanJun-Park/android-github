@@ -6,5 +6,5 @@ data class GithubRepositoryDto(
 	val id: Int,
 	@field:Json(name = "full_name")
 	val fullName: String,
-	val description: String
+	val description: String?
 )
