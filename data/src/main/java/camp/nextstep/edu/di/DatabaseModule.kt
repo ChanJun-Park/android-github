@@ -16,7 +16,7 @@ abstract class DatabaseModule {
 
 	@Provides
 	@Singleton
-	fun provideGithubRepositoryDatabase(application: Application): GithubRepositoryDatabase {
+	internal fun provideGithubRepositoryDatabase(application: Application): GithubRepositoryDatabase {
 		return Room.databaseBuilder(
 			application,
 			GithubRepositoryDatabase::class.java,
@@ -26,7 +26,7 @@ abstract class DatabaseModule {
 
 	@Provides
 	@Singleton
-	fun provideGithubRepositoryEntityDao(githubRepositoryDatabase: GithubRepositoryDatabase): GithubRepositoryEntityDao {
+	internal fun provideGithubRepositoryEntityDao(githubRepositoryDatabase: GithubRepositoryDatabase): GithubRepositoryEntityDao {
 		return githubRepositoryDatabase.githubRepositoryEntityDao
 	}
 }

@@ -17,7 +17,7 @@ abstract class ApiModule {
 
 	@Provides
 	@Singleton
-	fun provideOkHttpClient(): OkHttpClient {
+	internal fun provideOkHttpClient(): OkHttpClient {
 		return OkHttpClient.Builder()
 			.addInterceptor(
 				HttpLoggingInterceptor().apply {
@@ -29,7 +29,7 @@ abstract class ApiModule {
 
 	@Provides
 	@Singleton
-	fun provideRetrofit(client: OkHttpClient): Retrofit {
+	internal fun provideRetrofit(client: OkHttpClient): Retrofit {
 		return Retrofit.Builder()
 			.baseUrl(GithubApi.BASE_URL)
 			.addConverterFactory(MoshiConverterFactory.create())
@@ -39,7 +39,7 @@ abstract class ApiModule {
 
 	@Provides
 	@Singleton
-	fun provideGithubApi(retrofit: Retrofit): GithubApi {
+	internal fun provideGithubApi(retrofit: Retrofit): GithubApi {
 		return retrofit.create(GithubApi::class.java)
 	}
 
