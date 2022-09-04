@@ -2,8 +2,8 @@ package camp.nextstep.edu.github
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import camp.nextstep.edu.domain.model.GithubRepository
-import camp.nextstep.edu.domain.usecase.FetchGithubRepositoriesUseCase
+import camp.nextstep.edu.domain.model.GithubRepo
+import camp.nextstep.edu.domain.usecase.FetchGithubReposUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,18 +13,18 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-	private val fetchGithubRepositories: FetchGithubRepositoriesUseCase
+	private val fetchGithubRepos: FetchGithubReposUseCase
 ): ViewModel() {
-	private val _githubRepositories = MutableStateFlow<List<GithubRepository>>(emptyList())
-	val githubRepositories: StateFlow<List<GithubRepository>> = _githubRepositories.asStateFlow()
+	private val _githubRepos = MutableStateFlow<List<GithubRepo>>(emptyList())
+	val githubRepos: StateFlow<List<GithubRepo>> = _githubRepos.asStateFlow()
 
 	init {
-		fetchRepositories()
+		fetchRepos()
 	}
 
-	private fun fetchRepositories() {
+	private fun fetchRepos() {
 		viewModelScope.launch {
-			_githubRepositories.value = fetchGithubRepositories()
+			_githubRepos.value = fetchGithubRepos()
 		}
 	}
 }

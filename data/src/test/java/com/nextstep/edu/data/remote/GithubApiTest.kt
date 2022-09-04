@@ -1,7 +1,7 @@
 package com.nextstep.edu.data.remote
 
 import camp.nextstep.edu.data.remote.GithubApi
-import camp.nextstep.edu.data.remote.dto.GithubRepositoryDto
+import camp.nextstep.edu.data.remote.dto.GithubRepoDto
 import com.google.common.truth.Truth.assertThat
 import com.nextstep.edu.data.MainCoroutineRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -51,11 +51,11 @@ class GithubApiTest {
 
 		mockWebServer.enqueue(MockResponse().setBody(fakeResponse))
 
-		val response = githubApi.fetchGithubRepositories()
+		val response = githubApi.fetchGithubRepos()
 
 		val expectedResponse =
 			listOf(
-				GithubRepositoryDto(
+				GithubRepoDto(
 					id = 1,
 					fullName = "mojombo/grit",
 					description = "**Grit is no longer maintained. Check out libgit2/rugged.** Grit gives you object oriented read/write access to Git repositories via Ruby."

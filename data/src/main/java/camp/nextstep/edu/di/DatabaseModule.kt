@@ -2,8 +2,8 @@ package camp.nextstep.edu.di
 
 import android.app.Application
 import androidx.room.Room
-import camp.nextstep.edu.data.local.GithubRepositoryDatabase
-import camp.nextstep.edu.data.local.GithubRepositoryEntityDao
+import camp.nextstep.edu.data.local.GithubRepoDatabase
+import camp.nextstep.edu.data.local.GithubRepoEntityDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,18 +17,18 @@ internal abstract class DatabaseModule {
 	companion object {
 		@Provides
 		@Singleton
-		internal fun provideGithubRepositoryDatabase(application: Application): GithubRepositoryDatabase {
+		internal fun provideGithubRepoDatabase(application: Application): GithubRepoDatabase {
 			return Room.databaseBuilder(
 				application,
-				GithubRepositoryDatabase::class.java,
-				"github_repository"
+				GithubRepoDatabase::class.java,
+				"github_repo"
 			).build()
 		}
 
 		@Provides
 		@Singleton
-		internal fun provideGithubRepositoryEntityDao(githubRepositoryDatabase: GithubRepositoryDatabase): GithubRepositoryEntityDao {
-			return githubRepositoryDatabase.githubRepositoryEntityDao
+		internal fun provideGithubRepoEntityDao(githubRepoDatabase: GithubRepoDatabase): GithubRepoEntityDao {
+			return githubRepoDatabase.githubRepoEntityDao
 		}
 	}
 }

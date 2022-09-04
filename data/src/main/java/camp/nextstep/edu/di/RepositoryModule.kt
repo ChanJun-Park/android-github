@@ -1,10 +1,9 @@
 package camp.nextstep.edu.di
 
-import camp.nextstep.edu.data.repository.GithubRepositoryRepositoryImpl
-import camp.nextstep.edu.domain.repository.GithubRepositoryRepository
+import camp.nextstep.edu.data.repository.GithubRepoRepositoryImpl
+import camp.nextstep.edu.domain.repository.GithubRepoRepository
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
@@ -15,5 +14,5 @@ internal abstract class RepositoryModule {
 
 	@Singleton
 	@Binds
-	abstract fun provideGithubRepositoryRepository(githubRepositoryRepositoryImpl: GithubRepositoryRepositoryImpl): GithubRepositoryRepository
+	abstract fun provideGithubRepoRepository(githubRepoRepositoryImpl: GithubRepoRepositoryImpl): GithubRepoRepository
 }

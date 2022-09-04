@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 	private val viewModel: MainViewModel by viewModels()
 	private lateinit var binding: ActivityMainBinding
-	private lateinit var adapter: GithubRepositoryAdapter
+	private lateinit var adapter: GithubRepoAdapter
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 	}
 
 	private fun initRecyclerView() {
-		adapter = GithubRepositoryAdapter()
+		adapter = GithubRepoAdapter()
 		binding.githubRepositoriesRecyclerView.adapter = adapter
 	}
 
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 	}
 
 	private suspend fun collectGithubRepositories() {
-		viewModel.githubRepositories.collectLatest {
+		viewModel.githubRepos.collectLatest {
 			adapter.submitList(it)
 		}
 	}
