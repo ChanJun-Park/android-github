@@ -56,6 +56,7 @@ class GithubApiTest {
 		val expectedResponse =
 			listOf(
 				GithubRepositoryDto(
+					id = 1,
 					fullName = "mojombo/grit",
 					description = "**Grit is no longer maintained. Check out libgit2/rugged.** Grit gives you object oriented read/write access to Git repositories via Ruby."
 				)
