@@ -3,7 +3,7 @@ package camp.nextstep.edu.data.remote
 import camp.nextstep.edu.data.remote.dto.GithubRepositoryDto
 import retrofit2.http.GET
 
-interface GithubApi {
+internal interface GithubApi {
 
 	@GET("repositories")
 	suspend fun fetchGithubRepositories(): List<GithubRepositoryDto>

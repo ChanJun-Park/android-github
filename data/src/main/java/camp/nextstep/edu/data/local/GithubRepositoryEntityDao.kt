@@ -7,7 +7,7 @@ import androidx.room.Query
 import camp.nextstep.edu.data.local.entity.GithubRepositoryEntity
 
 @Dao
-interface GithubRepositoryEntityDao {
+internal interface GithubRepositoryEntityDao {
 
 	@Insert(onConflict = OnConflictStrategy.REPLACE)
 	suspend fun insert(githubRepositoryEntity: GithubRepositoryEntity)

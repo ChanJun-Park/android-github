@@ -5,6 +5,6 @@ import androidx.room.RoomDatabase
 import camp.nextstep.edu.data.local.entity.GithubRepositoryEntity
 
 @Database(entities = [GithubRepositoryEntity::class], version = 1, exportSchema = false)
-abstract class GithubRepositoryDatabase : RoomDatabase() {
+internal abstract class GithubRepositoryDatabase : RoomDatabase() {
 	abstract val githubRepositoryEntityDao: GithubRepositoryEntityDao
 }

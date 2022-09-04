@@ -8,8 +8,9 @@ import camp.nextstep.edu.data.remote.GithubApi
 import camp.nextstep.edu.data.remote.dto.GithubRepositoryDto
 import camp.nextstep.edu.domain.model.GithubRepository
 import camp.nextstep.edu.domain.repository.GithubRepositoryRepository
+import javax.inject.Inject
 
-internal class GithubRepositoryRepositoryImpl(
+internal class GithubRepositoryRepositoryImpl @Inject constructor(
 	private val githubApi: GithubApi,
 	private val githubRepositoryEntityDao: GithubRepositoryEntityDao,
 ) : GithubRepositoryRepository {
